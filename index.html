@@ -9,7 +9,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-```
+
 :root {
   --red:        #C0171D;
   --red-light:  #E8353B;
@@ -69,11 +69,26 @@ nav {
   padding: 60px 5%;
 }
 .hero::before {
-  content: ''; position: absolute; inset: 0;
+  content: '';
+   position: absolute; 
+   inset: 0;
   background: linear-gradient(to right, rgba(13,13,13,0.90) 0%, rgba(13,13,13,0.65) 55%, rgba(13,13,13,0.25) 100%);
 }
-.hero-content { position: relative; z-index: 2; max-width: 680px; animation: fadeUp 0.9s ease both; }
-.hero-badge { display: inline-block; background: rgba(192,23,29,0.18); border: 1px solid rgba(192,23,29,0.5); color: var(--red-light); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 6px 18px; border-radius: 50px; margin-bottom: 24px; }
+.hero-content { position: relative; 
+  z-index: 2; 
+  max-width: 680px;
+ animation: fadeUp 0.9s ease both; }
+
+.hero-badge { display: inline-block; 
+  background: rgba(192,23,29,0.18);
+   border: 1px solid rgba(192,23,29,0.5);
+    color: var(--red-light); 
+    font-size: 0.72rem; letter-spacing: 0.2em;
+     text-transform: uppercase; 
+     padding: 6px 18px; 
+     border-radius: 50px; 
+     margin-bottom: 24px; }
+     
 .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: 16px; }
 .hero h1 em { font-style: normal; color: var(--red-light); }
 .hero-slogan { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 36px; font-weight: 300; }
@@ -123,16 +138,6 @@ nav {
 
 .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px; }
 
-/*
-╔══════════════════════════════════════════════════════╗
-║  MENU FOOD IMAGES — HOW TO ADD YOUR PHOTOS          ║
-║  Each menu card below has an <img> tag like this:   ║
-║    <img class="menu-item-img" src="YOUR_IMAGE.jpg"> ║
-║  Replace  YOUR_IMAGE.jpg  with your photo filename. ║
-║  Example:  src="fufu.jpg"  or  src="pizza.jpg"      ║
-║  Put all photos in the same folder as this file.    ║
-╚══════════════════════════════════════════════════════╝
-*/
 .menu-item { background: var(--white); border: 1px solid rgba(0,0,0,0.07); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.3s, transform 0.2s; }
 .menu-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.12); transform: translateY(-4px); }
 .menu-item-img { width: 100%; height: 185px; object-fit: cover; display: block; background: var(--black2); }
@@ -232,7 +237,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
   .hero-btns { flex-direction: column; }
   .btn-primary, .btn-outline { text-align: center; }
 }
-```
+
 
   </style>
 </head>
@@ -367,7 +372,7 @@ TIP: Use clear filenames so you know which is which:
     <p class="menu-cat-sub">International favourites prepared with local love</p>
     <div class="menu-grid">
 
-```
+
   <div class="menu-item">
     <img class="menu-item-img" src="images/shawarma.jpg" alt="Shawarma" onerror="this.style.minHeight='185px'"/>
     <!-- ↑ REPLACE shawarma.jpg with your shawarma photo filename -->
@@ -396,7 +401,7 @@ TIP: Use clear filenames so you know which is which:
   </div>
 
 </div>
-```
+
 
   </div>
 
@@ -407,7 +412,7 @@ TIP: Use clear filenames so you know which is which:
     <p class="menu-cat-sub">Quick, delicious, made to order</p>
     <div class="menu-grid">
 
-```
+
   <div class="menu-item">
     <img class="menu-item-img" src="images/jollof.jpg" alt="Jollof Chicken" onerror="this.style.minHeight='185px'"/>
     <!-- ↑ REPLACE jollof.jpg with your jollof chicken photo filename -->
@@ -427,7 +432,7 @@ TIP: Use clear filenames so you know which is which:
   </div>
 
 </div>
-```
+
 
   </div>
 
@@ -438,7 +443,7 @@ TIP: Use clear filenames so you know which is which:
     <p class="menu-cat-sub">Authentic Ghanaian dishes made the traditional way</p>
     <div class="menu-grid">
 
-```
+
   <div class="menu-item">
     <img class="menu-item-img" src="images/fufu.jpg" alt="Fufu" onerror="this.style.minHeight='185px'"/>
     <!-- ↑ REPLACE fufu.jpg with your fufu photo filename -->
@@ -476,7 +481,7 @@ TIP: Use clear filenames so you know which is which:
   </div>
 
 </div>
-```
+
 
   </div>
 
@@ -487,7 +492,7 @@ TIP: Use clear filenames so you know which is which:
     <p class="menu-cat-sub">Baked fresh — perfect for every occasion</p>
     <div class="menu-grid">
 
-```
+
   <div class="menu-item">
     <img class="menu-item-img" src="images/meat-pie.jpg" alt="Meat Pie" onerror="this.style.minHeight='185px'"/>
     <!-- ↑ REPLACE meatpie.jpg with your meat pie photo filename -->
@@ -525,7 +530,7 @@ TIP: Use clear filenames so you know which is which:
   </div>
 
   <div class="menu-item">
-    <img class="menu-item-img" src="birthdaycake.jpg" alt="Birthday Cake" onerror="this.style.minHeight='185px'"/>
+    <img class="menu-item-img" src="images/birthdaycake.jpg" alt="Birthday Cake" onerror="this.style.minHeight='185px'"/>
     <!-- ↑ REPLACE birthdaycake.jpg with your birthday cake photo filename -->
     <div class="menu-item-body">
       <div><div class="menu-item-name">Birthday Cake</div><div class="menu-item-desc">Custom cakes for all celebrations</div></div>
@@ -534,7 +539,7 @@ TIP: Use clear filenames so you know which is which:
   </div>
 
   <div class="menu-item">
-    <img class="menu-item-img" src="pastry.jpg" alt="Other Pastries" onerror="this.style.minHeight='185px'"/>
+    <img class="menu-item-img" src="images/pastry.jpg" alt="Other Pastries" onerror="this.style.minHeight='185px'"/>
     <!-- ↑ REPLACE pastry.jpg with a general pastry photo filename -->
     <div class="menu-item-body">
       <div><div class="menu-item-name">Other Cakes & Pastries</div><div class="menu-item-desc">Special requests welcome</div></div>
@@ -543,7 +548,7 @@ TIP: Use clear filenames so you know which is which:
   </div>
 
 </div>
-```
+
 
   </div>
 
@@ -590,63 +595,63 @@ and pasting it inside the gallery-grid div:
   <div class="gallery-section">
     <div class="gallery-grid">
 
-```
+
   <div class="gallery-item">
-    <img src="photo1.jpg" alt="Food Photo" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/fried-rice.jpg" alt="Food Photo" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo1.jpg -->
     <div class="gallery-item-label">Our Food</div>
   </div>
 
   <div class="gallery-item">
-    <img src="photo2.jpg" alt="Cake Photo" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/photo2.jpg" alt="Cake Photo" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo2.jpg -->
     <div class="gallery-item-label">Cakes & Pastries</div>
   </div>
 
   <div class="gallery-item">
-    <img src="photo3.jpg" alt="Local Dish" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/banku.jpg" alt="Local Dish" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo3.jpg -->
     <div class="gallery-item-label">Local Dishes</div>
   </div>
 
   <div class="gallery-item">
-    <img src="photo4.jpg" alt="Event Catering" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/event.jpg" alt="Event Catering" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo4.jpg -->
     <div class="gallery-item-label">Event Catering</div>
   </div>
 
   <div class="gallery-item">
-    <img src="photo5.jpg" alt="Continental" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/shawarma.jpg" alt="Continental" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo5.jpg -->
     <div class="gallery-item-label">Continental</div>
   </div>
 
   <div class="gallery-item">
-    <img src="photo6.jpg" alt="Pastries" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/sausage-roll.jpg" alt="Pastries" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo6.jpg -->
     <div class="gallery-item-label">Pastries</div>
   </div>
 
   <div class="gallery-item">
-    <img src="photo7.jpg" alt="Our Chefs" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/photo4.jpg" alt="Our Chefs" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo7.jpg -->
     <div class="gallery-item-label">Our Chefs</div>
   </div>
 
   <div class="gallery-item">
-    <img src="photo8.jpg" alt="Special Occasion" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/gallery1.jpg" alt="Special Occasion" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo8.jpg -->
     <div class="gallery-item-label">Special Occasions</div>
   </div>
 
   <div class="gallery-item">
-    <img src="photo9.jpg" alt="Plated Dish" onerror="this.parentElement.style.background='#1a1a1a'"/>
+    <img src="images/jollof.jpg" alt="Plated Dish" onerror="this.parentElement.style.background='#1a1a1a'"/>
     <!-- ↑ REPLACE photo9.jpg -->
     <div class="gallery-item-label">Plated Dishes</div>
   </div>
 
 </div>
-```
+
 
   </div>
 
@@ -699,7 +704,7 @@ and pasting it inside the gallery-grid div:
         </div>
       </div>
 
-```
+
   <div>
     <div class="order-form">
       <h4>Place an Order</h4>
@@ -724,7 +729,7 @@ and pasting it inside the gallery-grid div:
     </div>
   </div>
 </div>
-```
+
 
   </div>
 
