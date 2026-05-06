@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adom Catering Service</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -64,13 +65,7 @@ nav {
 .page { display: none; min-height: 100vh; padding-top: 70px; }
 .page.active { display: block; }
 
-/*Home*/
-   
 
-/*
-HERO IMAGE:
-
-*/
 .hero {
   min-height: calc(100vh - 70px);
   background-image: url('images/hero.jpg'); 
@@ -116,8 +111,20 @@ HERO IMAGE:
 .hours-strip { background: var(--red); padding: 20px 5%; text-align: center; }
 .hours-strip p { font-weight: 700; color: #fff; font-size: 1rem; letter-spacing: 0.04em; }
 
-/* MENU PAGE*/
-  
+/* ── POPULAR SECTION ── */
+.popular-section { padding: 80px 5%; background: var(--grey); }
+.popular-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+.popular-header .view-all {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--red); font-weight: 700; font-size: 0.88rem;
+  text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 2px solid var(--red); padding-bottom: 2px;
+  transition: color 0.3s, border-color 0.3s; cursor: pointer;
+}
+.popular-header .view-all:hover { color: var(--red-light); border-color: var(--red-light); }
+
+
+/* Menu page */
 
 .menu-hero { background: var(--black); padding: 60px 5% 40px; text-align: center; }
 .menu-hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 12px; }
@@ -289,7 +296,6 @@ HERO IMAGE:
 .gallery-hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,5vw,3.5rem); color: #fff; margin-bottom: 12px; }
 .gallery-hero p { color: rgba(255,255,255,0.45); }
 .gallery-section { padding: 60px 5%; }
-
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 14px; }
 .gallery-item { aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; background: var(--black2); position: relative; }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
@@ -352,6 +358,8 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
   .cart-nav-btn span.cart-label { display: none; }
   .cart-sidebar { width: 100%; max-width: 100%; right: -100%; }
 }
+.value-icon i { font-size: 2.2rem !important; }
+
 
   </style>
 </head>
@@ -369,7 +377,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
   </ul>
   <div class="nav-right">
     <button class="cart-nav-btn" onclick="openCart()">
-      🛒 <span class="cart-label">Cart</span>
+      <i class="fa-solid fa-cart-shopping"></i> <span class="cart-label">Cart</span>
       <span class="cart-count" id="cartCount">0</span>
     </button>
     <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -403,7 +411,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
       <div class="cart-total-label">Total</div>
       <div>
         <div class="cart-total-amount" id="cartTotal">GH₵ 0.00</div>
-        <div class="cart-total-note">Ask Us</div>
+        <div class="cart-total-note">* "Ask Us" items excluded from total</div>
       </div>
     </div>
     <button class="cart-checkout-btn" id="checkoutBtn" onclick="checkoutWhatsApp()" disabled>
@@ -427,7 +435,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
   </a>
 </div>
 
-<!-- ════════════ PAGE 1: HOME ════════════ -->
+<!-- Home -->
 
 <div id="page-home" class="page active">
   <section class="hero">
@@ -443,10 +451,22 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
   </section>
 
   <div class="stats-bar">
-    <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Dishes Available</div></div>
-    <div class="stat"><div class="stat-num">8AM</div><div class="stat-label">Opens Daily</div></div>
-    <div class="stat"><div class="stat-num">10PM</div><div class="stat-label">Last Orders</div></div>
-    <div class="stat"><div class="stat-num">★ 5</div><div class="stat-label">Customer Love</div></div>
+    <div class="stat">
+      <div class="stat-num"><i class="fa-solid fa-bowl-food" style="font-size:1.2rem;margin-right:6px;"></i><span class="counter" data-target="100" data-suffix="+">0</span></div>
+      <div class="stat-label">Dishes Available</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><i class="fa-solid fa-clock" style="font-size:1.2rem;margin-right:6px;"></i><span class="counter" data-target="8" data-suffix="AM">0</span></div>
+      <div class="stat-label">Opens Daily</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><i class="fa-solid fa-moon" style="font-size:1.2rem;margin-right:6px;"></i><span class="counter" data-target="10" data-suffix="PM">0</span></div>
+      <div class="stat-label">Last Orders</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><i class="fa-solid fa-star" style="font-size:1.2rem;margin-right:6px;color:var(--red-light)"></i><span class="counter" data-target="5" data-suffix=" Stars">0</span></div>
+      <div class="stat-label">Customer Rating</div>
+    </div>
   </div>
 
   <section class="section">
@@ -454,39 +474,92 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
     <h2 class="section-title">Certified. Passionate.<br/>Unforgettable.</h2>
     <p class="section-sub">Adom Catering Service is a certified catering company in Tarkwa, specialised in all kinds of dishes. We have certified chefs and cooks, and we take orders for all occasions. Our aim is to be the best catering service across the globe — customer service is our hallmark. Our core value is respect.</p>
     <div class="values-grid">
-      <div class="value-card"><div class="value-icon">👨‍🍳</div><div class="value-title">Certified Chefs</div><div class="value-desc">Professional culinary experts crafting every dish with care.</div></div>
-      <div class="value-card"><div class="value-icon">🤝</div><div class="value-title">Respect</div><div class="value-desc">Our core value — every customer treated with dignity and care.</div></div>
-      <div class="value-card"><div class="value-icon">🎉</div><div class="value-title">All Occasions</div><div class="value-desc">Weddings, birthdays, corporate events — perfectly catered.</div></div>
-      <div class="value-card"><div class="value-icon">🍽️</div><div class="value-title">Diverse Menu</div><div class="value-desc">From Ghanaian classics to continental favourites.</div></div>
+      <div class="value-card"><div class="value-icon"><i class="fa-solid fa-user-tie fa-lg" style="color:var(--red)"></i></div><div class="value-title">Certified Chefs</div><div class="value-desc">Professional culinary experts crafting every dish with care.</div></div>
+      <div class="value-card"><div class="value-icon"><i class="fa-solid fa-handshake fa-lg" style="color:var(--red)"></i></div><div class="value-title">Respect</div><div class="value-desc">Our core value — every customer treated with dignity and care.</div></div>
+      <div class="value-card"><div class="value-icon"><i class="fa-solid fa-champagne-glasses fa-lg" style="color:var(--red)"></i></div><div class="value-title">All Occasions</div><div class="value-desc">Weddings, birthdays, corporate events — perfectly catered.</div></div>
+      <div class="value-card"><div class="value-icon"><i class="fa-solid fa-utensils fa-lg" style="color:var(--red)"></i></div><div class="value-title">Diverse Menu</div><div class="value-desc">From Ghanaian classics to continental favourites.</div></div>
     </div>
   </section>
 
-  <div class="hours-strip"><p>🕗 &nbsp; Open Every Day &nbsp;|&nbsp; <strong>8:00 AM – 10:00 PM</strong> &nbsp;|&nbsp; 📍 Opposite Abrempon Cold Store, Tarkwa</p></div>
+  <div class="hours-strip"><p><i class="fa-solid fa-clock"></i> &nbsp; Open Every Day &nbsp;|&nbsp; <strong>8:00 AM – 10:00 PM</strong> &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> Opposite Abrempon Cold Store, Tarkwa</p></div>
 
-  <section class="section section-dark">
-    <div class="section-tag">Our Specialties</div>
-    <h2 class="section-title">What We're Serving</h2>
-    <p class="section-sub">From savoury local dishes to fresh pastries — handcrafted daily by our talented team.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:36px;">
-      <div class="menu-card" style="background:rgba(255,255,255,0.06);border-color:rgba(192,23,29,0.2);"><div class="menu-card-body"><div class="menu-card-row"><div class="menu-card-name" style="color:#fff">Fufu & Goat Meat</div><div class="menu-card-price">Ask Us</div></div><div class="menu-card-desc">Local favourite</div></div></div>
-      <div class="menu-card" style="background:rgba(255,255,255,0.06);border-color:rgba(192,23,29,0.2);"><div class="menu-card-body"><div class="menu-card-row"><div class="menu-card-name" style="color:#fff">Jollof Chicken</div><div class="menu-card-price">Ask Us</div></div><div class="menu-card-desc">Adom fast food</div></div></div>
-      <div class="menu-card" style="background:rgba(255,255,255,0.06);border-color:rgba(192,23,29,0.2);"><div class="menu-card-body"><div class="menu-card-row"><div class="menu-card-name" style="color:#fff">Shawarma</div><div class="menu-card-price">Ask Us</div></div><div class="menu-card-desc">Continental</div></div></div>
-      <div class="menu-card" style="background:rgba(255,255,255,0.06);border-color:rgba(192,23,29,0.2);"><div class="menu-card-body"><div class="menu-card-row"><div class="menu-card-name" style="color:#fff">Birthday Cake</div><div class="menu-card-price">Ask Us</div></div><div class="menu-card-desc">Adom pastry</div></div></div>
+  <section class="popular-section">
+    <div class="popular-header">
+      <div>
+        <div class="section-tag"><i class="fa-solid fa-fire-flame-curved"></i> &nbsp;Most Ordered</div>
+        <h2 class="section-title" style="margin-bottom:0">Popular Dishes</h2>
+      </div>
+      <a class="view-all" onclick="showPage('menu')">View Full Menu &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
     </div>
-    <div style="text-align:center"><a class="btn-primary" onclick="showPage('menu')">See Full Menu</a></div>
+    <div class="menu-grid">
+
+
+  <div class="menu-card">
+    <div class="menu-card-img-wrap" onclick="addToCart('Fufu', 0)">
+      <img class="menu-card-img" src="images/fufu.jpg" alt="Fufu" onerror="this.style.minHeight='190px'"/>
+      <div class="menu-card-img-label">Fufu</div>
+      <div class="menu-card-overlay"><div class="menu-card-overlay-icon"><i class="fa-solid fa-cart-plus fa-lg"></i></div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
+    </div>
+    <div class="menu-card-body">
+      <div class="menu-card-row"><div class="menu-card-name">Fufu</div><div class="menu-card-price">Ask Us</div></div>
+      <div class="menu-card-desc">Goat meat / Tilapia / Chicken / Dry fish</div>
+      <button class="add-to-cart-btn" onclick="addToCart('Fufu', 0)"><i class="fa-solid fa-cart-plus"></i> &nbsp;Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-wrap" onclick="addToCart('Jollof Chicken', 0)">
+      <img class="menu-card-img" src="images/jollof.jpg" alt="Jollof Chicken" onerror="this.style.minHeight='190px'"/>
+      <div class="menu-card-img-label">Jollof Chicken</div>
+      <div class="menu-card-overlay"><div class="menu-card-overlay-icon"><i class="fa-solid fa-cart-plus fa-lg"></i></div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
+    </div>
+    <div class="menu-card-body">
+      <div class="menu-card-row"><div class="menu-card-name">Jollof Chicken</div><div class="menu-card-price">Ask Us</div></div>
+      <div class="menu-card-desc">Flavourful jollof rice with chicken</div>
+      <button class="add-to-cart-btn" onclick="addToCart('Jollof Chicken', 0)"><i class="fa-solid fa-cart-plus"></i> &nbsp;Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-wrap" onclick="addToCart('Shawarma', 0)">
+      <img class="menu-card-img" src="images/shawarma.jpg" alt="Shawarma" onerror="this.style.minHeight='190px'"/>
+      <div class="menu-card-img-label">Shawarma</div>
+      <div class="menu-card-overlay"><div class="menu-card-overlay-icon"><i class="fa-solid fa-cart-plus fa-lg"></i></div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
+    </div>
+    <div class="menu-card-body">
+      <div class="menu-card-row"><div class="menu-card-name">Shawarma</div><div class="menu-card-price">Ask Us</div></div>
+      <div class="menu-card-desc">Grilled meat wrap with sauces</div>
+      <button class="add-to-cart-btn" onclick="addToCart('Shawarma', 0)"><i class="fa-solid fa-cart-plus"></i> &nbsp;Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <div class="menu-card-img-wrap" onclick="addToCart('Birthday Cake', 0)">
+      <img class="menu-card-img" src="images/birthdaycake.jpg" alt="Birthday Cake" onerror="this.style.minHeight='190px'"/>
+      <div class="menu-card-img-label">Birthday Cake</div>
+      <div class="menu-card-overlay"><div class="menu-card-overlay-icon"><i class="fa-solid fa-cart-plus fa-lg"></i></div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
+    </div>
+    <div class="menu-card-body">
+      <div class="menu-card-row"><div class="menu-card-name">Birthday Cake</div><div class="menu-card-price">Order</div></div>
+      <div class="menu-card-desc">Custom cakes for all celebrations</div>
+      <button class="add-to-cart-btn" onclick="addToCart('Birthday Cake', 0)"><i class="fa-solid fa-cart-plus"></i> &nbsp;Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+
+
   </section>
 
   <footer>
     <div class="footer-logo">Adom Catering</div>
     <div class="footer-slogan">Great Service · Great People · Great Results<br/>Opposite Abrempon Cold Store, Tarkwa</div>
     <div class="footer-links"><a onclick="showPage('home')">Home</a><a onclick="showPage('menu')">Menu</a><a onclick="showPage('gallery')">Gallery</a><a onclick="showPage('contact')">Contact</a></div>
-    <div class="footer-copy">© 2026 Adom Catering Service. All rights reserved.</div>
+    <div class="footer-copy">© 2025 Adom Catering Service. All rights reserved.</div>
   </footer>
 </div>
 
-<!-- ════════════ PAGE 2: MENU ════════════ -->
-
-
+<!-- menu -->
 
 <div id="page-menu" class="page">
   <div class="menu-hero"><h2>Our Menu</h2><p>Tap any image to add to cart · Checkout via WhatsApp</p></div>
@@ -500,41 +573,41 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
 
 
   <div class="menu-card">
-    <div class="menu-card-img-wrap" onclick="addToCart('Shawarma', )">
+    <div class="menu-card-img-wrap" onclick="addToCart('Shawarma', 0)">
       <img class="menu-card-img" src="images/shawarma.jpg" alt="Shawarma" onerror="this.style.minHeight='190px'"/>
       <div class="menu-card-img-label">Shawarma</div>
       <div class="menu-card-overlay"><div class="menu-card-overlay-icon">🛒</div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
     </div>
     <div class="menu-card-body">
-      <div class="menu-card-row"><div class="menu-card-name">Shawarma</div><div class="menu-card-price">GH₵ </div></div>
+      <div class="menu-card-row"><div class="menu-card-name">Shawarma</div><div class="menu-card-price">Ask Us</div></div>
       <div class="menu-card-desc">Grilled meat wrap with sauces</div>
-      <button class="add-to-cart-btn" onclick="addToCart('Shawarma', )">🛒 Add to Cart</button>
+      <button class="add-to-cart-btn" onclick="addToCart('Shawarma', 0)">🛒 Add to Cart</button>
     </div>
   </div>
 
   <div class="menu-card">
-    <div class="menu-card-img-wrap" onclick="addToCart('Pizza', )">
+    <div class="menu-card-img-wrap" onclick="addToCart('Pizza', 0)">
       <img class="menu-card-img" src="images/pizza.jpg" alt="Pizza" onerror="this.style.minHeight='190px'"/>
       <div class="menu-card-img-label">Pizza</div>
       <div class="menu-card-overlay"><div class="menu-card-overlay-icon">🛒</div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
     </div>
     <div class="menu-card-body">
-      <div class="menu-card-row"><div class="menu-card-name">Pizza</div><div class="menu-card-price">GH₵ </div></div>
+      <div class="menu-card-row"><div class="menu-card-name">Pizza</div><div class="menu-card-price">GH₵ Ask Us</div></div>
       <div class="menu-card-desc">Various toppings available</div>
-      <button class="add-to-cart-btn" onclick="addToCart('Pizza', )">🛒 Add to Cart</button>
+      <button class="add-to-cart-btn" onclick="addToCart('Pizza', 0)">🛒 Add to Cart</button>
     </div>
   </div>
 
   <div class="menu-card">
-    <div class="menu-card-img-wrap" onclick="addToCart('Salad', )">
+    <div class="menu-card-img-wrap" onclick="addToCart('Salad', 0)">
       <img class="menu-card-img" src="images/salad.jpg" alt="Salad" onerror="this.style.minHeight='190px'"/>
       <div class="menu-card-img-label">Salad</div>
       <div class="menu-card-overlay"><div class="menu-card-overlay-icon">🛒</div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
     </div>
     <div class="menu-card-body">
-      <div class="menu-card-row"><div class="menu-card-name">Salad</div><div class="menu-card-price">GH₵ </div></div>
+      <div class="menu-card-row"><div class="menu-card-name">Salad</div><div class="menu-card-price">Ask Us</div></div>
       <div class="menu-card-desc">Fresh garden salad options</div>
-      <button class="add-to-cart-btn" onclick="addToCart('Salad', )">🛒 Add to Cart</button>
+      <button class="add-to-cart-btn" onclick="addToCart('Salad', 50)">🛒 Add to Cart</button>
     </div>
   </div>
 
@@ -577,6 +650,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
   </div>
 
 </div>
+
 
   </div>
 
@@ -682,7 +756,6 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
   <div class="menu-card">
     <div class="menu-card-img-wrap" onclick="addToCart('Sausage Roll', 0)">
       <img class="menu-card-img" src="images/sausage-roll.jpg" alt="Sausage Roll" onerror="this.style.minHeight='190px'"/>
-      
       <div class="menu-card-img-label">Sausage Roll</div>
       <div class="menu-card-overlay"><div class="menu-card-overlay-icon">🛒</div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
     </div>
@@ -695,12 +768,12 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
 <!-- 
   <div class="menu-card">
     <div class="menu-card-img-wrap" onclick="addToCart('Wedding Cake', 0)">
-      <img class="menu-card-img" src="images/birthdaycake.jpg" alt="Wedding Cake" onerror="this.style.minHeight='190px'"/>
-      <div class="menu-card-img-label">Birthday Cake</div>
+      <img class="menu-card-img" src="weddingcake.jpg" alt="Wedding Cake" onerror="this.style.minHeight='190px'"/>
+      <div class="menu-card-img-label">Wedding Cake</div>
       <div class="menu-card-overlay"><div class="menu-card-overlay-icon">🛒</div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
     </div>
     <div class="menu-card-body">
-      <div class="menu-card-row"><div class="menu-card-name">Birthday Cake</div><div class="menu-card-price">Order</div></div>
+      <div class="menu-card-row"><div class="menu-card-name">Wedding Cake</div><div class="menu-card-price">Order</div></div>
       <div class="menu-card-desc">Custom designed for your special day</div>
       <button class="add-to-cart-btn" onclick="addToCart('Wedding Cake', 0)">🛒 Add to Cart</button>
     </div>
@@ -713,7 +786,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
       <div class="menu-card-overlay"><div class="menu-card-overlay-icon">🛒</div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
     </div>
     <div class="menu-card-body">
-      <div class="menu-card-row"><div class="menu-card-name">Birthday Cake</div><div class="menu-card-price">Ask Us</div></div>
+      <div class="menu-card-row"><div class="menu-card-name">Birthday Cake</div><div class="menu-card-price">Order</div></div>
       <div class="menu-card-desc">Custom cakes for all celebrations</div>
       <button class="add-to-cart-btn" onclick="addToCart('Birthday Cake', 0)">🛒 Add to Cart</button>
     </div>
@@ -726,7 +799,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
       <div class="menu-card-overlay"><div class="menu-card-overlay-icon">🛒</div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
     </div>
     <div class="menu-card-body">
-      <div class="menu-card-row"><div class="menu-card-name">Other Cakes & Pastries</div><div class="menu-card-price">Ask Us</div></div>
+      <div class="menu-card-row"><div class="menu-card-name">Other Cakes & Pastries</div><div class="menu-card-price">Order</div></div>
       <div class="menu-card-desc">Special requests welcome</div>
       <button class="add-to-cart-btn" onclick="addToCart('Other Cakes & Pastries', 0)">🛒 Add to Cart</button>
     </div>
@@ -753,7 +826,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
   </footer>
 </div>
 
-<!-- ════════════ PAGE 3: GALLERY ════════════ -->
+
 
 <div id="page-gallery" class="page">
   <div class="gallery-hero"><h2>Our Gallery</h2><p>A glimpse into our kitchen, creations & catering moments</p></div>
@@ -783,7 +856,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
     <div class="footer-logo">Adom Catering</div>
     <div class="footer-slogan">Great Service · Great People · Great Results</div>
     <div class="footer-links"><a onclick="showPage('home')">Home</a><a onclick="showPage('menu')">Menu</a><a onclick="showPage('gallery')">Gallery</a><a onclick="showPage('contact')">Contact</a></div>
-    <div class="footer-copy">© 2026 Adom Catering Service. All rights reserved.</div>
+    <div class="footer-copy">© 2025 Adom Catering Service. All rights reserved.</div>
   </footer>
 </div>
 
@@ -820,7 +893,7 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
           <div class="form-group"><label>Your Name</label><input type="text" id="f-name" placeholder="e.g. Kwame Mensah"/></div>
           <div class="form-group"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="e.g. 024 000 0000"/></div>
           <div class="form-group"><label>Service Type</label>
-            <select id="f-service"><option value="">Select service type</option><option>Dine-in / Takeaway</option><option>Catering for Event</option><option>Pastry / Cake Order</option><option>Other</option></select>
+            <select id="f-service"><option value="">Select service type</option><option>Dine-in</option><option>Takeaway</option><option>Catering for Event</option><option>Pastry / Cake Order</option><option>Other</option></select>
           </div>
           <div class="form-group"><label>Your Order / Message</label><textarea id="f-order" placeholder="Tell us what you'd like to order..."></textarea></div>
           <button class="wa-btn" onclick="sendWhatsApp()" style="width:100%;justify-content:center;border-radius:6px;margin-top:8px;">
@@ -949,6 +1022,29 @@ footer { background: var(--black); border-top: 1px solid rgba(192,23,29,0.2); pa
     document.getElementById('navLinks').classList.remove('open');
     closeCart();
   }
+
+  // ── ANIMATED COUNTERS ──
+  function animateCounters() {
+    document.querySelectorAll('.counter').forEach(el => {
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = Math.floor(current) + suffix;
+      }, 16);
+    });
+  }
+
+  // Run counters when stats bar is visible
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCounters(); statsObserver.disconnect(); } });
+  }, { threshold: 0.3 });
+  const statsBar = document.querySelector('.stats-bar');
+  if (statsBar) statsObserver.observe(statsBar);
 
   function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
 
