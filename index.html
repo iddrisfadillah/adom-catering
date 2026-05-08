@@ -686,6 +686,30 @@
     <p class="menu-cat-sub">Quick, delicious, made to order</p>
     <div class="menu-grid">
 
+
+      <div class="menu-card">
+        <div class="menu-card-img-wrap" onclick="addToCart('Fried Yam')">
+          <img class="menu-card-img" src="images/friedyam.jpg" alt="Fried Yam" onerror="this.style.minHeight='190px'"/>
+          
+          <div class="menu-card-img-label">Fried Yam</div>
+          <div class="menu-card-overlay">
+            <div class="menu-card-overlay-icon"><i class="fa-solid fa-cart-plus fa-lg"></i></div>
+            <div class="menu-card-overlay-text">Add to Cart</div>
+            <div class="menu-card-overlay-sub">Tap to order</div>
+          </div>
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-row">
+            <div class="menu-card-name">Fried Yam</div>
+            <div class="menu-card-price">Ask Us</div>
+          </div>
+          <div class="menu-card-desc">Crispy golden fried yam</div>
+          <button class="add-to-cart-btn" onclick="addToCart('Fried Yam')">
+            <i class="fa-solid fa-cart-plus"></i> &nbsp;Add to Cart
+          </button>
+        </div>
+      </div>    
+
       <div class="menu-card">
         <div class="menu-card-img-wrap" onclick="addToCart('Jollof Chicken', 0)">
           <img class="menu-card-img" src="images/jollof.jpg" alt="Jollof Chicken" onerror="this.style.minHeight='190px'"/>
@@ -707,7 +731,7 @@
           <div class="menu-card-overlay"><div class="menu-card-overlay-icon">🛒</div><div class="menu-card-overlay-text">Add to Cart</div><div class="menu-card-overlay-sub">Tap to order</div></div>
         </div>
         <div class="menu-card-body">
-          <div class="menu-card-row"><div class="menu-card-name">Fried Rice & Chicken</div><div class="menu-card-price">GH₵ 40–60</div></div>
+          <div class="menu-card-row"><div class="menu-card-name">Fried Rice & Chicken</div><div class="menu-card-price">Ask Us</div></div>
           <div class="menu-card-desc">Stir-fried rice with seasoned chicken</div>
           <button class="add-to-cart-btn" onclick="addToCart('Fried Rice & Chicken', 0)">🛒 Add to Cart</button>
         </div>
@@ -715,6 +739,9 @@
 
     </div>
   </div>
+  
+  
+
 
   <!-- ADOM LOCALS -->
   <div class="menu-section">
@@ -984,6 +1011,7 @@
     'Sausage Roll':        [{ name: 'Small Sausage Roll', price: 5 }, { name: 'Large Sausage Roll', price: 10 }],
     'Wedding Cake':        [{ name: 'Wedding Cake', price: 2000 }],
     'Birthday Cake':       [{ name: 'Birthday Cake', price: 400 }],
+    // 'Fried Yam': [{ name: 'Adom Pack', price:  0}, { name: 'Adom Special Fried Yam', price: 0 }],
   };
 
   // ── MODAL STATE ──
